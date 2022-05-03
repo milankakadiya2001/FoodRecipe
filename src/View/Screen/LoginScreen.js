@@ -58,7 +58,7 @@ const LoginScreen = ({navigation}) => {
           console.log(loginData.data.message);
           if(loginData.data.code == 200 ){
               console.log("Login ho gya re babba");
-              navigation.navigate("Home")
+              navigation.navigate("Tab")
           }else{
               Alert.alert("Error", loginData.data.message)
           }

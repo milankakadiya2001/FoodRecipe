@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   },
   btn: {
     padding: 15,
-    backgroundColor: COLORS.darkBlue,
+    backgroundColor: COLORS.blue,
     borderRadius: 13,
     alignItems: 'center',
     marginVertical: 7,
@@ -112,5 +112,6 @@ const styles = StyleSheet.create({
   btnFont: {
     fontSize: SIZES.body2,
     fontWeight: 'bold',
+    color: COLORS.white
   },
 });

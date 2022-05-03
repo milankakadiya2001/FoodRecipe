@@ -72,7 +72,7 @@ const RegisterScreen = ({navigation}) => {
         console.log(registerData.data);
         if(registerData.data.code == 200 ){
           console.log("Login Successfully");
-          navigation.navigate("Home")
+          navigation.navigate("Tab")
       }else{
           Alert.alert("Error", registerData.data.message)
       }
