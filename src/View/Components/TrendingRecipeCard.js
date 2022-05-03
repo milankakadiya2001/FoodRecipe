@@ -6,19 +6,28 @@ import {
   Image,
   Platform,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {icons, SIZES} from '../../conts';
 import COLORS from '../../conts/colors';
 import {BlurView} from '@react-native-community/blur';
 
 const RecipeCardDetail = ({recipeItem}) => {
+  const [bookmarkDone, SetBookmarkDone] = useState(false);
+
+  const BookmarkBtn = () => {
+    SetBookmarkDone(!bookmarkDone);
+  };
   return (
-    <View style={{flex: 1}} >
+    <View style={{flex: 1}}>
       <View style={styles.detail}>
         <Text style={styles.detailName}>{recipeItem.name}</Text>
-        <Image source={icons.bookmark} style={styles.bookmark} />
+        <TouchableOpacity onPress={() => BookmarkBtn()} >
+          <Image source={bookmarkDone ? icons.bookmark : icons.wbookmark} style={styles.bookmark} />
+        </TouchableOpacity>
       </View>
-      <Text style={{color: COLORS.grey1}} >{recipeItem.duration} | {recipeItem.serving}</Text>
+      <Text style={{color: COLORS.grey1}}>
+        {recipeItem.duration} | {recipeItem.serving}
+      </Text>
     </View>
   );
 };
@@ -39,7 +48,9 @@ const RecipeCardInfo = ({recipeItem}) => {
 
 const TrendingRecipeCard = ({recipeItem, onPress, containerStyle}) => {
   return (
-    <TouchableOpacity style={[styles.root, {...containerStyle}]} onPress={onPress} >
+    <TouchableOpacity
+      style={[styles.root, {...containerStyle}]}
+      onPress={onPress}>
       <Image
         style={styles.bgFoodImg}
         source={recipeItem.image}
@@ -103,5 +114,6 @@ const styles = StyleSheet.create({
   bookmark: {
     height: 30,
     width: 30,
+    tintColor: COLORS.darkBlue
   },
 });
